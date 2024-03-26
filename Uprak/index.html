@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>F1 News | Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('slebew.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: white; 
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+            width: 300px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #545454; 
+            color: #fff;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            width: 100%;
+        }
+
+        button:hover {
+            background-color: #cacaca; 
+            color: white;
+        }
+
+        .signup-link {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        .signup-link a {
+            color: #002944; 
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Halaman Login -->
+    <form id="loginForm">
+        <form action="home.html" method="get" onsubmit="return validasi ()" >
+        <h2>Login</h2>
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <button type="submit">Login</button>
+        <a href="home.html">Login</a>
+        <div class="signup-link">
+            Don't have an account? <a href="#" onclick="toggleForm()">Register</a>
+        </div>
+    </form>
+
+    <!-- Halaman Register -->
+    <form id="registerForm" style="display: none;">
+        <h2>Register</h2>
+        <label for="newFront Name">Front Name:</label>
+        <input type="text" id="newFront Name" name="newFront Name" required>
+		<label for="newLast Name">Last Name:</label>
+        <input type="text" id="newLast Name" name="newLast Name" required>
+		<label for="newEmail">Email:</label>
+		<input type="text" id="newEmail" name="newEmail" required>
+		<label for="newDate Of Birth">Date Of Birth:</label>
+		<input type="Date">
+        <label for="newPassword">Password:</label>
+        <input type="password" id="newPassword" name="newPassword" required>
+        <button type="submit">Register</button>
+        <div class="signup-link">
+            Already have an account? <a href="#" onclick="toggleForm()">Login</a>
+        </div>
+        <input type="submit" value="Login" class="submit-btn" onclick="auth()">
+    </form>
+
+    <script>
+        function validasi()
+{
+    let txtUsername = document.getElementById("username").value.trim();
+    console.log(txtUsername)
+    let txtPassword = document.getElementById("password").value;
+    if (txtUsername.length == 0)
+    {
+        alert("Username cant be blank");
+        return false;
+    }
+    if (txtPassword.length < 7)
+    {
+        alert("Password cant be less than 8 characters");
+        return false;
+    }   
+
+    localStorage.setItem("ls-username", txtUsername);
+
+    return true;
+}
+            
+       
+    </script>
+
+</body>
+</html>
